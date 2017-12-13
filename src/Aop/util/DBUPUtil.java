@@ -8,11 +8,12 @@ import java.util.Properties;
 
 import javax.sql.DataSource;
 
-import org.apache.commons.dbcp.BasicDataSourceFactory;
+import org.apache.commons.dbcp2.BasicDataSource;
+import org.apache.commons.dbcp2.BasicDataSourceFactory;
 import org.apache.commons.dbutils.*;
 
 public class DBUPUtil {
-	private static DataSource dataSource;
+	private static  DataSource dataSource;
 
 	static {
 		InputStream inputStream = DBUPUtil.class.getClassLoader().getResourceAsStream("dbcpconfig.properties");
@@ -28,10 +29,12 @@ public class DBUPUtil {
 	}
 
 	public static DataSource getDataSource() {
+  
+		
 		return dataSource;
 	}
 
 	public static Connection getConnection() throws SQLException {
-		return dataSource.getConnection();
+		return getDataSource().getConnection();
 	}
 }

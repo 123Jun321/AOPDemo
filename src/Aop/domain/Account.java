@@ -28,4 +28,11 @@ public class Account {
 	public void setMoney(double money) {
 		this.money = money;
 	}
+
+	public Account(int accountID, String name, double money) {
+		super();
+		AccountID = accountID;
+		this.name = name;
+		this.money = money;
+	}
 }

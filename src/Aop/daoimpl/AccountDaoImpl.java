@@ -15,9 +15,8 @@ public class AccountDaoImpl implements AccountDao {
 	@Override
 	public void UpdateAccount(Account account) {
 		// TODO Auto-generated method stub
-		DBUPUtil util = new DBUPUtil();
 		try {
-			query.update(util.getConnection(), "update account set money=? where AccountID=?", account.getMoney(),
+			query.update(DBUPUtil.getConnection(), "update account set money=? where AccountID=?", account.getMoney(),
 					account.getAccountID());
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
